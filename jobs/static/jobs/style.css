@@ -1,0 +1,18 @@
+form {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  
+  label,input {
+    display: inline-block;
+  }
+  
+  label {
+    width: 17%;
+    text-align: left;
+  }
+  #submit
+  {
+      margin-left: 250px;
+  }
