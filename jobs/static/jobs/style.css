@@ -14,11 +14,8 @@ form {
   }
   body
   {
-    background: grey;
-  }
-
-  div {
-    background: cyan;
+    background: url("images/hackthebox.jpg") no-repeat top fixed;
+    background-size: cover;
   }
 
   #submit
