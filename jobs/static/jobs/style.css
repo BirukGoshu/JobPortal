@@ -12,6 +12,10 @@ form {
     width: 17%;
     text-align: left;
   }
+  body
+  {
+    background-color: grey;
+  }
 
   div {
     background-color: cyan;
