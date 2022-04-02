@@ -9,28 +9,30 @@
     <title>index</title>
 </head>
 <body style="background-color:gray">
-    <form action="" method="post">
-        {% csrf_token %}
-        {% for message in messages %}
-        <h5 style="color:red">{{message}</h5>
-        {% endfor %}
-        <label for="p_name">Position Name</label>
-        <input type="text" name="position_name" id="p_name"><br>
-        <label for="description">Description</label>
-        <input type="text" name="description" id="description"><br>
-        <label for="min_age">Minimum Age</label>
-        <input type="number" name="min_age" id="min_age"><br>
-        <label for="max_age">Maximum Age</label>
-        <input type="number" name="max_age" id="max_age"><br>
-        <label for="salary">Salary</label>
-        <input type="number" name="salary" id="salary"><br>
-        <label for="num_of_opening">Number Of Openings</label>
-        <input type="number" name="num_of_opening" id="num_of_opening"><br>
-        <label for="username">creator username</label>
-        <input type="text" name="username" id="username"><br>
-        <label for="password">creator password</label>
-        <input type="password" name="password" id="password"><br><br><br>   
-        <input type="submit" value="Submit" id="submit">
-    </form>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for message in messages %}
+            <h5 style="color:red">{{message}}</h5>
+            {% endfor %}
+            <label for="p_name">Position Name</label>
+            <input type="text" name="position_name" id="p_name"><br>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description"><br>
+            <label for="min_age">Minimum Age</label>
+            <input type="number" name="min_age" id="min_age"><br>
+            <label for="max_age">Maximum Age</label>
+            <input type="number" name="max_age" id="max_age"><br>
+            <label for="salary">Salary</label>
+            <input type="number" name="salary" id="salary"><br>
+            <label for="num_of_opening">Number Of Openings</label>
+            <input type="number" name="num_of_opening" id="num_of_opening"><br>
+            <label for="username">creator username</label>
+            <input type="text" name="username" id="username"><br>
+            <label for="password">creator password</label>
+            <input type="password" name="password" id="password"><br><br><br>   
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
 </body>
 </html>

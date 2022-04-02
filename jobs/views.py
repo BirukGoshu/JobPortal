@@ -20,7 +20,8 @@ def index(request):
                             min_age=request.POST['min_age'], 
                             max_age=request.POST['max_age'],
                             salary=request.POST['salary'], 
-                            number_of_opening=request.POST['num_of_opening'],)
+                            number_of_opening=request.POST['num_of_opening'],
+                            creater = request.user,)
             messages.info(request, 'job posted successfully')
         else:
             messages.info(request,"invalid credentials")
@@ -28,7 +29,7 @@ def index(request):
     else:
         return render(request,'jobs/index.html')
         
-    print(request.POST)
+    # print(request.POST)
     return render(request, "jobs/index.html")
 
     

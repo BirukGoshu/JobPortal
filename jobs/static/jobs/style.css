@@ -12,6 +12,11 @@ form {
     width: 17%;
     text-align: left;
   }
+
+  div {
+    background-color: cyan;
+  }
+
   #submit
   {
       margin-left: 250px;
