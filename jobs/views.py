@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.urls import reverse
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.models import User,auth
 
 from .models import Job
 
@@ -10,9 +11,10 @@ def index(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = user.authenticate(username=username,password=password)
+        user = auth.authenticate(username=username,password=password)
         
-        if user in not None:
+        if user is not None:
+            auth.login(request, user)
             Job.objects.create(position_name=request.POST['position_name'],
                             text_description=request.POST['description'], 
                             min_age=request.POST['min_age'], 
@@ -22,9 +24,9 @@ def index(request):
             messages.info(request, 'job posted successfully')
         else:
             messages.info(request,"invalid credentials")
-            return redirect(request,'jobs/index.html')
+            return render(request,'jobs/index.html')
     else:
-        return redirect(request,'jobs/index.html')
+        return render(request,'jobs/index.html')
         
     print(request.POST)
     return render(request, "jobs/index.html")
