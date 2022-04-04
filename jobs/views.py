@@ -23,6 +23,7 @@ def post_job(request):
                             number_of_opening=request.POST['num_of_opening'],
                             creater = request.user,)
             messages.info(request, 'job posted successfully')
+            return render(request,'jobs/post_job.html')
         else:
             messages.info(request, 'please login first')
             return redirect('jobs/login.html')
