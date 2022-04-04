@@ -41,5 +41,5 @@ def about(request):
 def contact(request):
     return render (request, 'jobs/contact.html')
 
-def catagory(request):
+def category(request):
     return render(request, 'jobs/category.html')
