@@ -36,4 +36,7 @@ def about(request):
     return render(request, 'jobs/about.html')
 
 def contact(request):
-    return render (request, 'jobs/catagory.html')
+    return render (request, 'jobs/contact.html')
+
+def catagory(request):
+    return render(request, 'jobs/catagory.html')
