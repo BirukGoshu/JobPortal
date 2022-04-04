@@ -32,6 +32,9 @@ def index(request):
     # print(request.POST)
     return render(request, "jobs/index.html")
 
+def post_job(request):
+    pass
+
 def about(request):
     return render(request, 'jobs/about.html')
 
@@ -39,4 +42,4 @@ def contact(request):
     return render (request, 'jobs/contact.html')
 
 def catagory(request):
-    return render(request, 'jobs/catagory.html')
+    return render(request, 'jobs/category.html')
