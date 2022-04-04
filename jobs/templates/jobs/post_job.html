@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="utf-8">
-    <title>JobEntry - Job Portal Website Template</title>
+    <title>Anarchy Job Portal</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -80,12 +80,12 @@
         <!-- Header End -->
         <div class="container-xxl py-5 bg-dark page-header mb-5">
             <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Post a Job</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb text-uppercase">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Post Job</li>
                     </ol>
                 </nav>
             </div>
@@ -120,7 +120,10 @@
                         <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
                         <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
                         <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a> -->
-                        <form action="" method="post">
+                        {% for message in messages %}
+                        <h3>{{message}</h3>
+                        {% endfor %}
+                        <form action="post_job" method="post">
                             <label for="Pname">Position Name</label>
                             <input type="text" name="Pname" id="Pname"><br>
                             <label for="discription">Discription</label>
@@ -131,7 +134,7 @@
                             <input type="number" name="maxage" id="maxage"><br>
                             <label for="salary">Salary</label>
                             <input type="number" name="salary" id="salary"><br>
-                            <label for="NOP">NUmber of Opening</label>
+                            <label for="NOP">Number of Opening</label>
                             <input type="number" name="NOP" id="NOP"><br><br>
                             <input type="submit" value="submit">
                         </form>
