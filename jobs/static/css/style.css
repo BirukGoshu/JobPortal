@@ -93,6 +93,11 @@ input {
   margin-left: 20px;
 }
 
+#submit
+{
+    margin-left: 40%;
+}
+
 
 .navbar .dropdown-toggle[aria-expanded=true]::after {
     transform: rotate(-180deg);
