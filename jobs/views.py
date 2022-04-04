@@ -31,6 +31,7 @@ def post_job(request):
         return render(request,'jobs/post_job.html')
     
 def login(request):
+    # return render(request,'jobs/login.html')
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
