@@ -89,9 +89,10 @@ label{
 }
 input {
   display: inline-block;
-  float: left;
+  float: center;
   margin-left: 20px;
 }
+
 
 .navbar .dropdown-toggle[aria-expanded=true]::after {
     transform: rotate(-180deg);
