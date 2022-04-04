@@ -14,12 +14,6 @@
     z-index: 99;
 }
 
-input
-{
-    align-items: center;
-    margin-left: 10px;
-
-}
 
 /*** Spinner ***/
 #spinner {
@@ -84,6 +78,19 @@ input
     vertical-align: middle;
     margin-left: 5px;
     transition: .5s;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 150px;
+    text-align: right;
+}
+input {
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
 }
 
 .navbar .dropdown-toggle[aria-expanded=true]::after {
