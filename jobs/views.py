@@ -32,4 +32,8 @@ def index(request):
     # print(request.POST)
     return render(request, "jobs/index.html")
 
-    
+def about(request):
+    return render(request, 'jobs/about.html')
+
+def contact(request):
+    return render (request, 'jobs/catagory.html')
