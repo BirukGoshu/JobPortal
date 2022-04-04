@@ -16,22 +16,19 @@ def post_job(request):
         # username = request.POST['username']
         # password = request.POST['password']
         # user = auth.authenticate(username=username,password=password)
-        if request.user is authenticated:
-            if user is not None:
-                auth.login(request, user)
-                Job.objects.create(position_name=request.POST['position_name'],
-                                text_description=request.POST['description'], 
-                                min_age=request.POST['min_age'], 
-                                max_age=request.POST['max_age'],
-                                salary=request.POST['salary'], 
-                                number_of_opening=request.POST['num_of_opening'],
-                                creater = request.user,)
-                messages.info(request, 'job posted successfully')
-            else:
-                messages.info(request,"invalid credentials")
-                return render(request,'jobs/index.html')
-        else:
-            return redirect(request,'jobs.login.html')
+        if user is not None:
+            auth.login(request, user)
+            Job.objects.create(position_name=request.POST['position_name'],
+                            text_description=request.POST['description'], 
+                            min_age=request.POST['min_age'], 
+                            max_age=request.POST['max_age'],
+                            salary=request.POST['salary'], 
+                            number_of_opening=request.POST['num_of_opening'],
+                            creater = request.user,)
+            messages.info(request, 'job posted successfully')
+       else:
+           messages.info(request, 'please login first')
+        return redirect(request,'jobs.login.html')
     else:
         return render(request,'jobs/index.html')
     
