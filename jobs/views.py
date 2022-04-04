@@ -13,8 +13,10 @@ def index(request):
 
 def post_job(request):
     if request.method == 'POST':
-        if user is not None:
-            # auth.login(request, user)
+        print(request.user)
+        user = auth.authenticate(username=request.username,password=request.password)
+        if user is not 'AnonymousUser':
+            # auth.login(request, request.user)
             Job.objects.create(position_name=request.POST['position_name'],
                             text_description=request.POST['description'], 
                             min_age=request.POST['min_age'], 

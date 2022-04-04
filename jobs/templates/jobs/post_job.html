@@ -134,18 +134,19 @@
                         <h3>{{message}</h3>
                         {% endfor %}
                         <form action="post_job" method="post">
-                            <label for="Pname">Position Name</label>
-                            <input type="text" name="Pname" id="Pname"><br>
-                            <label for="discription">Discription</label>
-                            <input type="text" name="discription" id="discription"><br>
-                            <label for="minage">Minimum Age</label>
-                            <input type="number" name="minage" id="minage"><br>
-                            <label for="maxage">Maximum Age</label>
-                            <input type="number" name="maxage" id="maxage"><br>
+                            {% csrf_token %}
+                            <label for="position_name">Position Name</label>
+                            <input type="text" name="position_name" id="Pname"><br>
+                            <label for="description">Discription</label>
+                            <input type="text" name="description" id="description"><br>
+                            <label for="min_age">Minimum Age</label>
+                            <input type="number" name="min_age" id="min_age"><br>
+                            <label for="max_age">Maximum Age</label>
+                            <input type="number" name="max_age" id="max_age"><br>
                             <label for="salary">Salary</label>
                             <input type="number" name="salary" id="salary"><br>
-                            <label for="NOP">Number of Opening</label>
-                            <input type="number" name="NOP" id="NOP"><br><br>
+                            <label for="num_of_opening">Number of Opening</label>
+                            <input type="number" name="num_of_opening" id="num_of_opening"><br><br>
                             <input type="submit" id="submit" value="submit">
                         </form>
                     </div>

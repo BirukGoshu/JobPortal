@@ -79,6 +79,7 @@
     <h3>{{message}</h3>
     {% endfor %}
     <form action="login" method="post">
+        {% csrf_token %}
         <label for="uname">Username</label>
         <input type="text" name="uname" id="uname"><br>
         <label for="password">Password</label>
