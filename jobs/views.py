@@ -13,7 +13,7 @@ def index(request):
 
 def post_job(request):
     if request.method == 'POST':
-        if user is.authenticated():
+        if user is not None:
             # auth.login(request, user)
             Job.objects.create(position_name=request.POST['position_name'],
                             text_description=request.POST['description'], 
@@ -23,7 +23,7 @@ def post_job(request):
                             number_of_opening=request.POST['num_of_opening'],
                             creater = request.user,)
             messages.info(request, 'job posted successfully')
-       else:
+        else:
             messages.info(request, 'please login first')
             return redirect('jobs/login.html')
     else:
