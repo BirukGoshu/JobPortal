@@ -13,11 +13,8 @@ def index(request):
 
 def post_job(request):
     if request.method == 'POST':
-        # username = request.POST['username']
-        # password = request.POST['password']
-        # user = auth.authenticate(username=username,password=password)
-        if user is not None:
-            auth.login(request, user)
+        if user is.authenticated():
+            # auth.login(request, user)
             Job.objects.create(position_name=request.POST['position_name'],
                             text_description=request.POST['description'], 
                             min_age=request.POST['min_age'], 
@@ -27,10 +24,26 @@ def post_job(request):
                             creater = request.user,)
             messages.info(request, 'job posted successfully')
        else:
-           messages.info(request, 'please login first')
-        return redirect(request,'jobs.login.html')
+            messages.info(request, 'please login first')
+            return redirect('jobs/login.html')
     else:
-        return render(request,'jobs/index.html')
+        return render(request,'jobs/post_job.html')
+    
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.info(request, 'login successfully')
+            return redirect("/")
+        else:
+            messages.info(request,'Invalid credentials entered')
+            return redirect('login.html')
+        
+    else:
+        return render(request,'jobs/login.html')
     
 def about(request):
     return render(request, 'jobs/about.html')
