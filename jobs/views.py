@@ -49,8 +49,7 @@ def login(request):
     else:
         return render(request,'jobs/login.html')
     
-def logout(request):
-    logout(request)
+def Logout(request):
     return redirect('index')
 
 def about(request):
