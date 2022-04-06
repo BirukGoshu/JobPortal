@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.urls import reverse
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth import login, logout
 from django.contrib.auth.models import User,auth
 
 from .models import Job
@@ -44,13 +45,15 @@ def login(request):
             return redirect("/")
         else:
             messages.info(request,'Invalid credentials entered')
-            return redirect('login.html')
+            return render(request, 'jobs/login.html')
         
     else:
         return render(request,'jobs/login.html')
     
-def Logout(request):
-    return redirect('index')
+    
+def logout_user(request):
+    logout(request)
+    return redirect('/')
 
 def about(request):
     return render(request, 'jobs/about.html')
