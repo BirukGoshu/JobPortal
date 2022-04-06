@@ -77,10 +77,13 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{user.username}}</a>
                     <div class="dropdown-menu rounded-0 m-0">
                         <a href="#" class="dropdown-item">Profile</a>
-                        <a href="#" class="dropdown-item">Logout</a>
+                        <a href="logout" class="dropdown-item">Logout</a>
                     </div>
+                </div>
                 {% else %}
-                <a href="login" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block ">Login<i class="fa fa-arrow-right ms-3"></i></a>
+                <div>
+                    <a href="login" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block ">Login<i class="fa fa-arrow-right ms-3"></i></a>
+                </div>
                 {% endif %}
             </div>
         </nav>
@@ -131,7 +134,7 @@
                         <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
                         <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a> -->
                         {% for message in messages %}
-                        <h3>{{message}</h3>
+                        <h3>{{message}}</h3>
                         {% endfor %}
                         <form action="post_job" method="post">
                             {% csrf_token %}

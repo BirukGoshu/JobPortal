@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponseRedirect,HttpResponse
 from django.urls import reverse
 from django.views import generic
@@ -14,8 +14,8 @@ def index(request):
 def post_job(request):
     if request.method == 'POST':
         print(request.user)
-        user = auth.authenticate(username=request.username,password=request.password)
-        if user is not 'AnonymousUser':
+        if request.user is not 'WSGIRequest':
+            user = auth.authenticate(username=request.user)
             # auth.login(request, request.user)
             Job.objects.create(position_name=request.POST['position_name'],
                             text_description=request.POST['description'], 
@@ -49,6 +49,10 @@ def login(request):
     else:
         return render(request,'jobs/login.html')
     
+def logout(request):
+    logout(request)
+    return redirect('index')
+
 def about(request):
     return render(request, 'jobs/about.html')
 
